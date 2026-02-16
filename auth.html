@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authenication</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+  <div class="logcon glass">
+    <div class="leftlog glass">
+      <div class="tit">After credits</div>
+      <div class="logtit">welcome back,</div>
+      <div class="logmsg">“Finished a movie? Got one stuck in your head?”</div>
+      <div class="logback">Dont have an account, <span onclick="window.location.href='signup.html'">Sign up</span></div>
+    </div>
+    <div class="rightlog glass">
+      <form id="loginForm" class="form active glassb">
+        <div class="loghead">User Login</div>
+        <input class="glassb" type="email" id="loginEmail" placeholder="Email" required>
+        <input class="glassb" type="password" id="loginPass" placeholder="Password" required>
+        <button type="submit" class="logbut glassb">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.js"></script>
+  <script src="auth.js"></script>
+  
+</body>
+</html>

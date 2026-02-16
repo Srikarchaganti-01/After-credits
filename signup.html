@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Authenication</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  <div class="logcon glass">
+    <div class="rightlog glass">
+      <form id="signupForm" class="form active glassb">
+        <div class="loghead">Create account</div>
+        <input class="glassb" type="email" id="signupEmail" placeholder="Email" required>
+        <input class="glassb" type="password" id="signupPass" placeholder="Password" required>
+        <input class="glassb" type="password" id="signupConfirm" placeholder="Confirm Password" required>
+        <button type="submit" class="logbut glassb">Login</button>
+      </form>
+    </div>
+
+
+    <div class="leftlog glass">
+      <div class="tit">After credits</div>
+      <div class="logtit">“Start your cinema journal.”</div>
+      <div class="logmsg">“Keep track of the stories that stayed with you.”</div>
+      <div class="logback">Already have an account?<span onclick="window.location.href='auth.html'">Login</span></div>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.js"></script>
+  <script src="signup.js"></script>
+
+  
+</body>
+</html>
