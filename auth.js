@@ -23,7 +23,7 @@ loginForm.addEventListener("submit", async (e) => {
 
   console.log("Logged in:", data.user?.email);
 
-  window.location.href = "landing.html";
+  window.location.href = "app.html";
 
   console.log("Logged in:", data.user?.email);
 });

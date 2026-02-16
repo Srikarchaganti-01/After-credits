@@ -7,7 +7,7 @@ const signupForm = document.getElementById("signupForm");
 
 signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
-
+  const user_Name = document.getElementById("userName").value.trim();
   const email = document.getElementById("signupEmail").value.trim();
   const password = document.getElementById("signupPass").value;
   const confirm = document.getElementById("signupConfirm").value;
@@ -26,10 +26,29 @@ signupForm.addEventListener("submit", async (e) => {
     alert(error.message);
     return;
   }
+  const user = data.user;
+  if (!user) {
+    alert("User not returned");
+    return;
+  }
+  const { error: profileError } = await supbase
+  .from("profiles")
+  .insert([
+    {
+      id: user.id,        
+      user_name: user_Name,
+      pass : password
+    }
+  ]);
+
+if (profileError) {
+  alert(profileError.message);
+  return;
+}
 
   console.log("Signup success:", data.user?.email);
 
-  window.location.href = "auth.html";
+  window.location.href = "app.html";
 
-  console.log("Signup success:", data.user?.email);
+  console.log("Signup success:", user_Name);
 });

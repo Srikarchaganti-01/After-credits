@@ -1,3 +1,6 @@
+
+console.log("app.js loaded");
+
 const supabaseUrl = "https://ppyhlmmliemzxallkivw.supabase.co";
 const supabaseKey = "sb_publishable_ku2-MLJitQBIjO3Oge6JZA_FlXTl87I";
 
@@ -6,57 +9,45 @@ const supbase = window.supabase.createClient(
   supabaseKey
 );
 
-async function run() {
-    
-  const { data: loginData, error: loginError } =
-    await supbase.auth.signInWithPassword({
-      email: "gollayaswanth12@gmail.com",
-      password: "yash134",
-    });
-
-  if (loginError) {
-    console.error("Login error:", loginError);
-    return;
-  }
-
-  const user = loginData.user;
-  console.log("Logged in user:", user.id);
-
-  
-  const { error: insertError } = await supbase
-    .from("entries")
-    .insert([
-      {
-        user_id: user.id,
-        title: "loki",
-        content_type: "series",
-        year:2019,
-        director:"Marvel ",
-        country:"Usa",
-        rating:9.0,
-        notes:"yashwanth account loki series",
-        streaming_partner:"jio hotstar",
-        status:"watched",
-        cover_img_url:"url1",
-      },
-    ]);
-
-  if (insertError) {
-    console.error("Insert error:", insertError);
-    return;
-  }
-
-  console.log("Insert success");
-
-  const { data, error } = await supbase
-    .from("entries")
-    .select("*");
+async function checkSession() {
+  const { data, error } = await supbase.auth.getUser();
 
   if (error) {
-    console.error("Fetch error:", error);
-  } else {
-    console.log("Entries:", data);
+    console.error(error);
   }
+
+  const user = data.user;
+
+  if (!user) {
+    window.location.href = "auth.html";
+    return;
+  }
+
+  console.log("Logged in user:", user.id);
+  return user;
 }
 
-run();
+checkSession();
+
+async function fetchProfile(user) {
+  const { data, error } = await supbase
+    .from("profiles")
+    .select("user_name")
+    .eq("id", user.id)
+    .single();
+
+  if (error) {
+    console.error("Profile error:", error);
+    return;
+  }
+
+  console.log("Username:", data.user_name);
+}
+async function init() {
+  const user = await checkSession();
+  if (!user) return;
+
+  await fetchProfile(user);
+}
+
+init();
