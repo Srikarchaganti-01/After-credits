@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+*:active{
+  outline: none;
+}
+html{
+  scroll-behavior: smooth;
+  height: max-content;
+}
+body{
+    font-family: "Montserrat",'Courier New',"Playfair Display", sans-serif;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 20px;
+    border-radius: 10px;
+
+}
+.right ul{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.right ul li {
+    list-style: none;
+}
+.right a{
+  text-decoration: none;
+  color: black;
+}
+.left{
+    font-family: "Playfair Display", sans-serif;
+    cursor: default;
+    font-weight: 400;
+    font-size: large;
+}
+.left2{
+    font-family: "Playfair Display", sans-serif;
+    cursor: default;
+    font-weight: 400;
+    font-size: large;
+    text-align: center;
+    display: none;
+}
+.navbar ul {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 2%;
+}
+.navbar li {
+  display: inline;
+  cursor: pointer;
+  padding: 5px 15px;
+  position: relative;
+}
+.navbar li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: rgb(0, 0, 0);
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.navbar li:hover::after {
+  transform: scaleX(1);
+}
+
+/* home section */
+
+.homecon{
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-evenly;
+    align-items: start;
+    width: 80%;
+    height: 50vh;
+    border-radius: 50px;
+}
+.greet{
+    font-size: 50px;
+    font-weight: 350;
+}
+.homedes{
+    font-size: 30px;
+    font-weight: 300;
+}
+.totent .rank{
+    font-weight: 300;
+}
+/* entries con */
+#data{
+    width: 98vw;
+}
+.datacon{
+  min-height: 90vh;
+  height: max-content;
+  width: 95%;
+  margin: 30px;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dattitle{
+  font-size: 50px;
+  text-align: start;
+  font-weight: 300;
+  width: 80%;
+  padding: 20px;
+  margin: 20px;
+}
+.datcon{
+  min-height: 400px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-bottom: 20px;
+}
+#licontan{
+  width: 100%;
+}
+#licontan li{
+    min-width: 50%;
+    width: max-content;
+    list-style: none;
+    font-size: 30px;
+    padding: 12px 30px ;
+    user-select: none;
+    cursor: pointer;
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+#licontan li span{
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0px 10px;
+}
+.datsum{
+  width: 80%;
+  display: flex;
+  justify-content: space-centre;
+  align-items: start;
+  padding: 30px 0px;
+}
+.dcon{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tottit{
+  font-size: xx-large;
+}
+#totdat{
+  font-size: xx-large;
+  font-weight: 500;
+}
+.copy{
+  margin: 20px;
+  text-align: center;
+  font-size: small;
+  font-weight: 300;
+}
+#add{
+  height: 80vh;
+  margin: 30px;
+  padding: 30px;
+  border-radius: 40px;
+}
+.addform{
+  width: 75%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.ent_head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.head{
+  font-size: 40px;
+  font-weight: 250;
+}
+.ent_head button{
+  background: transparent;
+  padding: 15px 35px;
+  border: 0.5px solid rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  font-size: 20px; 
+}
+.mainent{
+  display: flex;
+  justify-content: start;
+  align-items: centre;
+}
+.mainent input{
+  padding: 10px 20px;
+  margin-right: 20px;
+  border: 0.01px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+}
+#ent_year{
+  text-align: center;
+  width: 120px;
+}
+.contypr{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.entloc input{
+  padding: 10px 20px;
+  margin-right: 20px;
+  border: 0.01px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+}
+.entsta{
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 200;
+}
+.watched,.yet_to,.typbut{
+  color: #555;
+  border: 0.001px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  background: transparent;
+  margin: 0 5px;
+}
+.rate{
+  width: 80px;
+}
+.rate input{
+  text-align: center;
+  padding: 10px 10px;
+  margin-right: 20px;
+  border: 0.01px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+}
+.entnote{
+  min-height: 100px;
+}
+#ent_note{
+  height: 90px;
+  width: 100%;
+  color: #555;
+  align-self: baseline;
+  padding: 20px;
+  margin-right: 20px;
+  border: 0.01px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  resize: none;
+}
+.active{
+  background: black;
+  color: white;
+}
