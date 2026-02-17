@@ -48,7 +48,7 @@ if (profileError) {
 
   console.log("Signup success:", data.user?.email);
 
-  window.location.href = "app.html";
+  window.location.href = "auth.html";
 
   console.log("Signup success:", user_Name);
 });

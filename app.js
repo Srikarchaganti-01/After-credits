@@ -28,7 +28,7 @@ async function checkSession() {
 }
 
 
-// fetch the user name from supabase profiles
+// fetchentries the user name from supabase profiles
 async function fetchProfile(user) {
   const { data, error } = await supbase
     .from("profiles")
@@ -42,13 +42,39 @@ async function fetchProfile(user) {
   }
   const dispname = document.getElementById("dispname");
   dispname.textContent=data.user_name;
-  console.log("Username:", data.user_name);
+  console.log("Username:", dispname.textContent);
 }
+
+
+//fetch entry count 
+async function fetchcount(user) {
+  const {count ,error} = await supbase
+    .from("entries")
+    .select("*",{count:"exact",head:true})
+    .eq("user_id",user.id);
+  if(error){
+    console.error("count error : ",error);
+    return 0;
+  }  
+  return count ?? 0;
+}
+//render count 
+function rendercount(count){
+  const countspan = document.querySelector("#totent span");
+  if(countspan) countspan.textContent = count;
+}
+
+
+// init function 
 async function init() {
   const user = await checkSession();
   if (!user) return;
 
   await fetchProfile(user);
+  const count = await fetchcount(user);
+  rendercount(count);
+  const entries = await fetchentries(user);
+  render(entries)
 }
 
 // content type button reading
@@ -108,6 +134,41 @@ const noteelem = document.getElementById("ent_note");
 
 const addbtn = document.querySelector(".ent_add_btn");
 
+
+// fetching the data from supabse
+async function fetchentries(user) {
+  const{data,error} = await supbase
+  .from("entries")
+  .select("*")
+  .eq("user_id",user.id)
+  .order("created_at",{ascending:false});
+if(error){
+  console.error("Fetch error:",error);
+  return[];
+}
+  return data;
+}
+
+// render the fetched data
+function render(entries){
+  const ul = document.getElementById("licontan");
+  ul.innerHTML = "";
+  if(!entries.length){
+    ul.innerHTML = "<li>No Entrie Yet</li>";
+    return;
+  }
+  entries.forEach(entry => {
+    const li = document.createElement("li");
+    const titlespan = document.createElement("span");
+    titlespan.textContent = entry.title;
+    const yearspan = document.createElement("span");
+    yearspan.textContent = entry.year ?? "";
+    li.appendChild(titlespan);
+    li.appendChild(yearspan);
+    ul.appendChild(li);
+  })
+}
+
 // read values when add bt is clicked
 
 addbtn.addEventListener("click", async (e) => {
@@ -117,7 +178,7 @@ addbtn.addEventListener("click", async (e) => {
   const director  = direlem.value.trim();
   const country = counelem.value.trim();
   const strpartner = spartelem.value.trim();
-  const rating = rateelem.value ? parseFloat(rateelem.value, 10) : null;
+  const rating = rateelem.value ? parseFloat(rateelem.value) : null;
   const note = noteelem.value.trim();
   const type = getseltyp();
   const status = getselsta();
@@ -133,7 +194,38 @@ addbtn.addEventListener("click", async (e) => {
     type,
     status
   });
+// insering data to supabse 
+  const user = await checkSession();
+  if(!user) return;
+  const entrydata = {
+    user_id: user.id,
+    title,
+    year,
+    director,
+    country,
+    rating,
+    status,
+    notes:note,
+    content_type:type,
+    username:dispname.textContent,
+    streaming_partner:strpartner,
+  }
+  const{ data, error } = await supbase
+    .from("entries")
+    .insert([entrydata])
+    .select();
+  if(error) {
+    console.error("Inser Error : ",error);
+    alert(error.message);
+    return;
+  }
 
+  console.log("The data is inserted into the data base");
+  console.log("inserted : ",data);
+  const entries = await fetchentries(user);
+  render(entries);
+  const count = await fetchcount(user);
+  rendercount(user);
   clearmes();
 });
 
