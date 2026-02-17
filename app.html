@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>After_credits</title>
     <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header> 
@@ -15,6 +16,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#add">Add</a></li>
                 <li><a href="entries.html">Entries</a></li>
+                <button id="logoutbtn"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
             </ul>
             </div>
         </div>
@@ -22,10 +24,15 @@
     <section id="home">
         <div class="homecon">
             <div class="greet" id="greet">Hello <span id="dispname">User_name</span></div>
-            <div class="homedes" id="homedes">description</div>
+            <div class="homedes">
+                <div class="maindes">After Credits: Your Personal Cinema Ledger.</div>
+                <div class="middes">Track the movies and series you watch, rate them your way, and write down what they meant to you. Build your own archive of stories, scenes, and moments that stayed long after the screen faded to black.</div>
+                <div class="enddes">Every entry adds to your cinematic journey — from Rookie to Grand Master.</div>
+            </div>
             <div class="totent" id="totent">Entries so far : <span>0</span></div>
-            <div class="rank" id="rank">rookie</div>
+            <div class="rank" id="rankcon">Credit Status : <span id="rank"></span></div>
         </div>
+        <!-- <div class="homeimgcon"></div> -->
     </section>
     <section id="data">
         <div class="datacon">
@@ -49,8 +56,8 @@
                 <button type="submit" class="ent_add_btn">Add</button>
             </div>
             <div class="mainent">
-                <input type="text" name="enttit" id="ent_tit" placeholder="Movie/series/Tv show">
-                <input type="number" name="entyear" id="ent_year" placeholder="Year of release">
+                <input type="text" name="enttit" id="ent_tit" placeholder="Movie/series/Tv show" required>
+                <input type="number" name="entyear" id="ent_year" placeholder="Year of release" required>
                 <div class="contypr">Content type : <button class="typbut ">Movie</button> <button class="typbut"> Series</button> <button class="typbut">Tv show</button></div>
             </div>
             <div class="entloc">
@@ -59,7 +66,7 @@
                 <input type="text" name="stream" id="ent_spart" placeholder="Streaming partner">
             </div>
             <div class="entsta">Status : <button class="watched  statbut" id="watched">Watched</button> <button class="yet_to statbut" id="yet_to">Yet to Watch</button></div>
-            <div class="rate"><input type="number" step="0.01" min="0" max="10" name="rating" id="ent_rate" placeholder="Rate (1-10)"></div>
+            <div class="rate"><input type="number" step="0.01" min="0" max="10" name="rating" id="ent_rate" placeholder="Rate (1-10)" required></div>
             <div class="entnote">
                 
                 <textarea name="" id="ent_note" placeholder="Personal Opinion / Notes"></textarea>

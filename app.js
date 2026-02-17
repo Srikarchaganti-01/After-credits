@@ -1,3 +1,4 @@
+  const dispname = document.getElementById("dispname");
 
 console.log("app.js loaded");
 
@@ -28,7 +29,20 @@ async function checkSession() {
 }
 
 
-// fetchentries the user name from supabase profiles
+//logout function
+
+const logoutBtn = document.getElementById("logoutbtn");
+logoutBtn.addEventListener("click", async () => {
+  const {error} = await supbase.auth.signOut();
+  if(error){
+    console.error("logout error :",error);
+    alert(error.message);
+    return;
+  }
+  window.location.href = "landing.html";
+});
+
+// fetch entries the user name from supabase profiles
 async function fetchProfile(user) {
   const { data, error } = await supbase
     .from("profiles")
@@ -40,7 +54,7 @@ async function fetchProfile(user) {
     console.error("Profile error:", error);
     return;
   }
-  const dispname = document.getElementById("dispname");
+
   dispname.textContent=data.user_name;
   console.log("Username:", dispname.textContent);
 }
@@ -58,6 +72,18 @@ async function fetchcount(user) {
   }  
   return count ?? 0;
 }
+
+// rank logic 
+function getrank(count){
+  if(count <=15) return "Rookie";
+  else if(count <= 30 && count >15) return "Story Hunter";
+  else if(count <= 60 && count >30) return "Frame Analyst";
+  else if(count <= 100 && count >15) return "Cinephile";
+  else if(count <= 150 && count >15) return "Scene Architect";
+  else if(count <= 210 && count >15) return "Narrative Scholar";
+  else if(count <= 280 && count >15) return "Cinema Maniac";
+  else if(count >300) return "Grand Auteur";
+}
 //render count 
 function rendercount(count){
   const countspan = document.querySelector("#totent span");
@@ -74,7 +100,10 @@ async function init() {
   const count = await fetchcount(user);
   rendercount(count);
   const entries = await fetchentries(user);
-  render(entries)
+  render(entries);
+  const rank = getrank(count);
+  document.getElementById("rank").textContent = rank;
+  trimList(10);
 }
 
 // content type button reading
@@ -154,15 +183,15 @@ function render(entries){
   const ul = document.getElementById("licontan");
   ul.innerHTML = "";
   if(!entries.length){
-    ul.innerHTML = "<li>No Entrie Yet</li>";
+    ul.innerHTML = "<li>No Entries Yet</li>";
     return;
   }
   entries.forEach(entry => {
     const li = document.createElement("li");
     const titlespan = document.createElement("span");
-    titlespan.textContent = entry.title;
+    titlespan.textContent = entry.content_type + " : " + entry.title;
     const yearspan = document.createElement("span");
-    yearspan.textContent = entry.year ?? "";
+    yearspan.textContent = " - " + entry.year ?? "";
     li.appendChild(titlespan);
     li.appendChild(yearspan);
     ul.appendChild(li);
@@ -173,6 +202,7 @@ function render(entries){
 
 addbtn.addEventListener("click", async (e) => {
   e.preventDefault();
+  
   const title = titelem.value.trim();
   const year = yearelem.value ? parseInt(yearelem.value, 10) : null;
   const director  = direlem.value.trim();
@@ -182,53 +212,64 @@ addbtn.addEventListener("click", async (e) => {
   const note = noteelem.value.trim();
   const type = getseltyp();
   const status = getselsta();
-
-  console.log({
-    title,
-    year,
-    director,
-    country,
-    strpartner,
-    rating,
-    note,
-    type,
-    status
-  });
-// insering data to supabse 
-  const user = await checkSession();
-  if(!user) return;
-  const entrydata = {
-    user_id: user.id,
-    title,
-    year,
-    director,
-    country,
-    rating,
-    status,
-    notes:note,
-    content_type:type,
-    username:dispname.textContent,
-    streaming_partner:strpartner,
-  }
-  const{ data, error } = await supbase
-    .from("entries")
-    .insert([entrydata])
-    .select();
-  if(error) {
-    console.error("Inser Error : ",error);
-    alert(error.message);
+  if(title == "" || year == "" || rating == "" || status == "" || type == "") {
+    alert("please fill the boxes Nigga");
     return;
   }
 
-  console.log("The data is inserted into the data base");
-  console.log("inserted : ",data);
-  const entries = await fetchentries(user);
-  render(entries);
-  const count = await fetchcount(user);
-  rendercount(user);
-  clearmes();
+  addbtn.disabled = true;
+  addbtn.textContent = "Adding...";
+  try {
+          // insering data to supabse 
+        const user = await checkSession();
+        if(!user) return;
+        const entrydata = {
+          user_id: user.id,
+          title,
+          year,
+          director,
+          country,
+          rating,
+          status,
+          notes:note,
+          content_type:type,
+          username:dispname.textContent,
+          streaming_partner:strpartner,
+        }
+        const{ data, error } = await supbase
+          .from("entries")
+          .insert([entrydata])
+          .select();
+        if(error) {
+          console.error("Inser Error : ",error);
+          alert(error.message);
+          return;
+        }
+
+        console.log("The data is inserted into the data base");
+        console.log("inserted : ",data);
+        const entries = await fetchentries(user);
+        render(entries);
+        const count = await fetchcount(user);
+        rendercount(count);
+        clearmes();
+        trimList(10);
+
+  } finally {
+    addbtn.disabled = false;
+    addbtn.textContent = "Add";
+  }
+
 });
 
+
+// limit list 
+
+function trimList(limit = 10) {
+  while (licontan.children.length > limit) {
+    licontan.lastElementChild.remove();
+  }
+}
 // clear this mess
 function clearmes() {
   titelem.value = "";
@@ -244,8 +285,49 @@ function clearmes() {
     .forEach(btn => btn.classList.remove("active"));
 }
 
+// go to next 
+titelem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    yearelem.focus();
+  }
+});
+yearelem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    direlem.focus();
+  }
+});
+direlem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    counelem.focus();
+  }
+});
+counelem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    spartelem.focus();
+  }
+});
+spartelem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    rateelem.focus();
+  }
+});
+rateelem.addEventListener("keydown", e => {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    noteelem.focus();
+  }
+});
+
 
 
 
 
 init();
+
+
+
