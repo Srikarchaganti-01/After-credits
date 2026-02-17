@@ -99,7 +99,8 @@ form{
     outline: none;
 }
 button{
-    width: 40%;
+    min-width: 40%;
+    width: max-content;
     padding: 10px;
 }
 button:active{
