@@ -26,8 +26,6 @@ loginForm.addEventListener("submit", async (e) => {
       console.log("Logged in:", data.user?.email);
 
       window.location.href = "app.html";
-
-      console.log("Logged in:", data.user?.email);
   }finally {
     logbut.disabled= false;
     logbut.textContent = "Login";

@@ -149,7 +149,7 @@ section{
   margin-top: 5px;
   font-style: italic;
 }
-.totent .rank{
+.totent,.rank{
     font-weight: 300;
 }
 /* entries con */
@@ -200,6 +200,10 @@ section{
     justify-content: start;
 }
 #licontan li span{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-width: 350px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
@@ -326,10 +330,10 @@ section{
 #ent_note{
   height: 90px;
   width: 100%;
+  max-width: stretch;
   color: #555;
   align-self: baseline;
   padding: 20px;
-  margin-right: 20px;
   border: 0.01px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
