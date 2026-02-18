@@ -10,7 +10,7 @@ loginForm.addEventListener("submit", async (e) => {
   logbut.disabled = true;
   logbut.textContent="Geting your things Ready....";
   try{
-        const email = document.getElementById("loginEmail").value.trim();
+      const email = document.getElementById("loginEmail").value.trim();
       const password = document.getElementById("loginPass").value;
 
       const { data, error } = await supbase.auth.signInWithPassword({

@@ -39,7 +39,7 @@ logoutBtn.addEventListener("click", async () => {
     alert(error.message);
     return;
   }
-  window.location.href = "landing.html";
+  window.location.href = "index.html";
 });
 
 // fetch entries the user name from supabase profiles
@@ -156,7 +156,7 @@ function getselsta() {
 const titelem = document.getElementById("ent_tit");
 const yearelem = document.getElementById("ent_year");
 const direlem = document.getElementById("ent_dir");
-const counelem = document.getElementById("ent_con");
+const proelem = document.getElementById("ent_pro");
 const spartelem = document.getElementById("ent_spart");
 const rateelem = document.getElementById("ent_rate");
 const noteelem = document.getElementById("ent_note");
@@ -207,13 +207,13 @@ addbtn.addEventListener("click", async (e) => {
   const title = titelem.value.trim();
   const year = yearelem.value ? parseInt(yearelem.value, 10) : null;
   const director  = direlem.value.trim();
-  const country = counelem.value.trim();
+  const prohouse = proelem.value.trim();
   const strpartner = spartelem.value.trim();
   const rating = rateelem.value ? parseFloat(rateelem.value) : null;
   const note = noteelem.value.trim();
   const type = getseltyp();
   const status = getselsta();
-  if(title == "" || year == "" || rating == "" || status == "" || type == "") {
+  if(title == "" || year == "" || rating == "" || status == "" || type == "" || prohouse == "") {
     alert("Fill the boxes Nigga");
     return;
   }
@@ -229,7 +229,7 @@ addbtn.addEventListener("click", async (e) => {
           title,
           year,
           director,
-          country,
+          prohouse,
           rating,
           status,
           notes:note,
@@ -276,7 +276,7 @@ function clearmes() {
   titelem.value = "";
   yearelem.value = "";
   direlem.value = "";
-  counelem.value = "";
+  proelem.value = "";
   spartelem.value = "";
   rateelem.value = "";
   noteelem.value = "";
@@ -302,10 +302,10 @@ yearelem.addEventListener("keydown", e => {
 direlem.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     e.preventDefault();
-    counelem.focus();
+    proelem.focus();
   }
 });
-counelem.addEventListener("keydown", e => {
+proelem.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     e.preventDefault();
     spartelem.focus();
@@ -329,6 +329,3 @@ rateelem.addEventListener("keydown", e => {
 
 
 init();
-
-
-
