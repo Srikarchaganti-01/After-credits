@@ -213,11 +213,10 @@ addbtn.addEventListener("click", async (e) => {
   const note = noteelem.value.trim();
   const type = getseltyp();
   const status = getselsta();
-  if(title == "" || year == "" || rating == "" || status == "" || type == "" || prohouse == "") {
-    alert("Fill the boxes Nigga");
-    return;
+  if (!title || !year || !rating || !type || !status || !prohouse) {
+      alert("Fill all the required fields");
+      return;
   }
-
   addbtn.disabled = true;
   addbtn.textContent = "Adding...";
   try {
