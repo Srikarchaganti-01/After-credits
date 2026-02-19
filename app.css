@@ -203,7 +203,7 @@ section{
     display: flex;
     justify-content: start;
     align-items: center;
-    min-width: 350px;
+    min-width: 375px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
