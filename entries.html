@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entries page    </title>
+    <link rel="stylesheet" href="entries.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="greet" id="greet">Hello <span id="dispname">User_name</span></div>
+    <section id="data">
+        <div class="datacon">
+          <div class="dattitle">Entries Breakdown </div>
+          <div class="filcon"><span>Filter : </span>
+            <button class="filbut active" id="all">All</button>
+            <button class="filbut" id="movies">Movies</button>
+            <button class="filbut" id="series">Series</button>
+            <button class="filbut" id="watched">Watched</button>
+            <button class="filbut" id="yetto">Yet to watch</button>
+          </div>
+          <div class="sorcon"><span>Sort by : </span>
+            <button class="sorbut active" id="date">Date Added</button>
+            <button class="sorbut" id="rateup">Rating <i class="fa-solid fa-arrow-trend-up"></i></button> 
+            <button class="sorbut" id="ratedown">Rating <i class="fa-solid fa-arrow-trend-down"></i></button>
+            <button class="sorbut" id="yearup">Year <i class="fa-solid fa-arrow-trend-up"></i></button>
+            <button class="sorbut" id="yeardown">Year <i class="fa-solid fa-arrow-trend-down"></i></button></div>
+          <div class="datcon">
+            <ul id="licontan">
+                
+            </ul>
+          </div>
+          
+      </section>
+      <script src="https://unpkg.com/@supabase/supabase-js@2.39.7/dist/umd/supabase.js"></script>
+    <script src="entries.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+*:active{
+  outline: none;
+}
+html{
+  scroll-behavior: smooth;
+  height: max-content;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+  -webkit-text-fill-color: black;
+}
+body{
+    font-family: "Montserrat",'Courier New',"Playfair Display", sans-serif;
+}
+.greet{
+  display: none;
+}
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#data{
+    width: 98vw;
+}
+.datacon{
+  height: max-content;
+  width: 95%;
+  margin: 30px;
+  border-radius: 25px; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dattitle{
+  font-size: 50px;
+  text-align: start;
+  font-weight: 300;
+  width: 80%;
+  padding: 20px;
+  margin: 20px;
+}
+.datcon{
+  min-height: 300px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  padding-bottom: 20px;
+}
+#licontan{
+  width: 100%;
+}
+#licontan li{
+    min-width: 50%;
+    width: max-content;
+    list-style: none;
+    font-size: 30px;
+    padding: 12px 30px ;
+    user-select: none;
+    cursor: pointer;
+    color: #707070;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+#licontan li span{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    min-width: 375px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 20px;
+    margin: 0px 10px;
+}
+.datsum{
+  width: 80%;
+  display: flex;
+  justify-content: space-centre;
+  align-items: start;
+  padding: 30px 0px;
+}
+.dcon{
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tottit{
+  font-size: xx-large;
+}
+#totdat{
+  font-size: xx-large;
+  font-weight: 500;
+}
+.copy{
+  margin: 20px;
+  text-align: center;
+  font-size: small;
+  font-weight: 300;
+}
+.filcon,.sorcon{
+    margin: 10px;
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    align-items: center;
+}
+.filcon span{
+    font-size: larger;
+    margin-right: 15px;
+}
+.sorcon span{
+    font-size: larger;
+    margin-right: 15px;
+}
+.filbut,.sorbut{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  color: #555;
+  border: 0.001px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  padding: 10px 20px;
+  background: transparent;
+  margin: 0 5px;
+}
+.active{
+  background: black;
+  color: white;
+  box-shadow: none;
+}
