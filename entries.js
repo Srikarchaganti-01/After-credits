@@ -86,4 +86,43 @@ function render(entries){
     ul.appendChild(li);
   })
 }
+
+
+// filter button reading
+const flbut =  document.querySelectorAll(".filbut");
+flbut.forEach(btn => {
+  btn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    flbut.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const seltyp = getfiltyp();
+    console.log(seltyp);
+  });
+});
+// getting filter button data
+function getfiltyp() {
+  const activeBtn = document.querySelector(".filbut.active");
+  return activeBtn
+    ? activeBtn.textContent.trim().toLowerCase()
+    : null;
+}
+
+// sort button reading
+const srbut =  document.querySelectorAll(".sorbut");
+srbut.forEach(btn => {
+  btn.addEventListener("click",(e) =>{
+    e.preventDefault();
+    srbut.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const sortyp = getsortyp();
+
+    console.log(sortyp);
+  });
+});
+// getting sort button data
+function getsortyp() {
+  const activeBtn = document.querySelector(".sorbut.active");
+  return activeBtn ? activeBtn.id : null;
+}
+
 init();
