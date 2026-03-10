@@ -193,5 +193,23 @@ main{
     }
     .leftcon{
       width: 95%;
+      height: 95%;
+      justify-content: space-evenly;
+    }
+    .navbar{
+      width: 80vw;
+    }
+    .maincon{
+      height: 95%;
+      border-radius: 25px;
+    }
+    .copy{
+      font-size: 10px;
+    }
+    .titdes,.titdes1,.title,.titmsg{
+      width: 100%;
+    }
+    #logbut{
+      font-size: medium;
     }
   }
