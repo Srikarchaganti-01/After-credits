@@ -132,7 +132,6 @@ section{
   transition: transform 0.5s ease-in-out;
 }
 
-/* home section */
 
 .homecon{
     display: flex;
@@ -166,7 +165,9 @@ section{
 .totent,.rank{
     font-weight: 300;
 }
-/* entries con */
+
+
+
 #data{
     width: 98vw;
 }
