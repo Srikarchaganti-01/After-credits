@@ -189,6 +189,7 @@ function render(entries){
   entries.forEach(entry => {
     const li = document.createElement("li");
     const titlespan = document.createElement("span");
+    titlespan.classList.add("minwid");
     //entry.content_type + " : " + see later
     titlespan.textContent =  entry.title;
     const yearspan = document.createElement("span");

@@ -217,7 +217,7 @@ section{
     display: flex;
     justify-content: start;
     align-items: center;
-    min-width: 375px;
+    /* min-width: 375px; */
     font-size: 22px;
     color: #555;
     line-height: 40px;
@@ -284,7 +284,7 @@ section{
 .mainent{
   display: flex;
   justify-content: start;
-  align-items: centre;
+  align-items: center;
 }
 .mainent input{
   padding: 10px 20px;
@@ -364,4 +364,115 @@ section{
   font-size: 13px;
   font-weight: 250;
   font-style: italic;
+}
+.minwid{
+  min-width: 375px;
+}
+@media (max-width:500px){
+  .left{
+    display: none;
+  }
+  .right{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .navbar{
+    margin: 10px 20px;
+    justify-content: center;
+  }
+  .navbar li{
+    padding: 5px 8px;
+  }
+  .navbar button{
+    padding: 5px;
+    width: 90px;
+  }
+  .greet{
+    font-size: 25px;
+  }
+  .maindes{
+    font-size: 10px;
+  }
+  .middes{
+    font-size: 12px;
+  }
+  .enddes{
+    font-size: 10px;
+  }
+  .homecon{
+    height: 35vh;
+    width: 85%;
+  }
+  .maindes sub{
+    font-size: 10px;
+  }
+  .head{
+    font-size: 30px;
+  }
+  .addform{
+    width: 90%;
+  }
+  .ent_head button{
+    font-size: 15px;
+    padding: 8px 16px;
+    border-radius: 15px;
+  }
+  #add{
+    height: 100vh;
+  }
+  .mainent{
+    flex-direction: column;
+    align-items: start;
+  }
+  #ent_tit{
+    width: 120px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  #ent_year{
+    width: 90px;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .contypr{
+    font-size: 15px;
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+  .contypr button{
+    padding: 8px;
+    border-radius: 12px;
+  }
+  #ent_dir,#ent_pro,#ent_spart{
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  .entloc input{
+    width: 110px;
+  }
+  #ent_note{
+    height: 45px;
+  }
+  .rate input{
+    width: 70px;
+  }
+  .copy{
+    font-size: 10px;
+  }
+  .dattitle{
+    font-size: 35px;
+  }
+  .datcon{
+    width: 100%;
+  }
+  #licontan li span{
+    font-size: 15px;
+  }
+  .minwid{
+    min-width: 200px;
+  }
+  .totent{
+    font-weight: 250;
+  }
 }

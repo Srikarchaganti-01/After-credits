@@ -3,7 +3,7 @@
 * {
   margin: 0;
   padding: 0;
-  outline: none;
+  /* outline: 1px solid red; */
 }
 *:active{
   outline: none;
@@ -150,7 +150,7 @@ section{
 .accitem {
   list-style: none;
   margin-bottom: 12px;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: #fff;
   width: 100%;
 }
@@ -199,4 +199,68 @@ section{
 
 .sorcon{
   margin-bottom: 30px;
+}
+.copy{
+  margin: 20px;
+  text-align: center;
+  font-size: small;
+  font-weight: 300;
+}
+@media (max-width:500px){
+  .filcon,.sorcon{
+    margin: 6px 0px;
+  }
+  .dattitle{
+    font-size: 25px;
+    padding: 20px 0px;
+    margin: -5px 0px;
+    width: 100%;
+  }
+  .filbut,.sorbut{
+    padding: 3px 8px;
+    font-size: 7px;
+    margin: 0;
+    margin-right: 5px;
+  }
+  .filcon,.sorcon span{
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  #licontan li{
+    padding: 10px 0;
+  }
+  .acctitle{
+    font-size: 10px;
+    min-width: 150px;
+  }
+  #licontan li span{
+    font-size: 12px;
+  }
+  .datcon{
+    width: 100%;
+  }
+  .acchead{
+    padding: 0;
+  }
+  .fa-solid{
+    font-size: xx-small;
+  }
+  .accdetails{
+    padding: 12px 5px;
+  }
+  .sorcon span{
+    display: none;
+  }
+  .accdetails h10{
+    font-size: 25px
+  }
+  .accdetails p{
+    font-size: 12px;
+  }
+  .copy{
+    font-size: 10px;
+  }
+  .datcon{
+    padding-bottom: 0;
+  }
 }
