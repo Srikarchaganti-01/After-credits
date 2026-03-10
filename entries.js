@@ -60,24 +60,72 @@ if(error){
 let allentries = [];
 // but we dont dump the shit into the main code we crate a new function to do so the fun does the magic and adds them into array removing the burden 
 
-// render the fetched data
-function render(entries){
+function render(entries) {
   const ul = document.getElementById("licontan");
   ul.innerHTML = "";
-  if(!entries.length){
+
+  if (!entries.length) {
     ul.innerHTML = "<li>No Entries Yet</li>";
     return;
   }
+
   entries.forEach(entry => {
     const li = document.createElement("li");
+    li.classList.add("accitem");
+
+    // HEADER
+    const header = document.createElement("div");
+    header.classList.add("acchead");
+
+    const left = document.createElement("div");
+    left.classList.add("accleft");
+
     const titlespan = document.createElement("span");
-    titlespan.textContent =  entry.title;
+    titlespan.classList.add("acctitle");
+    titlespan.textContent = entry.title ?? "Untitled";
+
     const yearspan = document.createElement("span");
-    yearspan.textContent = " : " + (entry.year ?? "");
-    li.appendChild(titlespan);
-    li.appendChild(yearspan);
+    yearspan.classList.add("accyear");
+    yearspan.textContent = entry.year ? ` (${entry.year})` : "";
+
+    left.appendChild(titlespan);
+    left.appendChild(yearspan);
+
+
+    const arrow = document.createElement("i");
+    arrow.classList.add("fa-solid", "fa-angle-down");
+    
+    header.appendChild(left);
+    header.appendChild(arrow);
+
+    // DETAILS
+    const details = document.createElement("div");
+    details.classList.add("accdetails");
+    details.style.display = "none";
+    // also improve the font text and all this shit
+    details.innerHTML = `
+      <h10>Rating : ${entry.rating ?? "Not rated"}/10</h10>
+      <p>Content Type : ${entry.content_type ?? "Not specified"}</p>
+      <p>Status : ${entry.status ?? "Not specified"}</p>
+      <p>Director : ${entry.director ?? "Not specified"}</p>
+      <p>Streaming Partner :  ${entry.streaming_partner ?? "Not specified"}</p>
+      <p>Production House : ${entry.prohouse ?? "Not specified"}</p>
+      <p>Notes : ${entry.notes ?? "No notes added"}</p>
+    `;
+
+    header.addEventListener("click", () => {
+      const isOpen = details.style.display === "block";
+
+      details.style.display = isOpen ? "none" : "block";
+
+      arrow.classList.toggle("fa-angle-down");
+      arrow.classList.toggle("fa-angle-up");
+    });
+
+    li.appendChild(header);
+    li.appendChild(details);
     ul.appendChild(li);
-  })
+  });
 }
 
 //funtion for filtering and sorting the entries

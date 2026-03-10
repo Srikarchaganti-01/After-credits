@@ -66,7 +66,6 @@ section{
 }
 #licontan li{
     min-width: 50%;
-    width: max-content;
     list-style: none;
     font-size: 30px;
     padding: 12px 30px ;
@@ -74,14 +73,14 @@ section{
     cursor: pointer;
     color: #707070;
     display: flex;
-    align-items: center;
-    justify-content: start;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
 }
 #licontan li span{
     display: flex;
     justify-content: start;
     align-items: center;
-    min-width: 375px;
     font-size: 22px;
     color: #555;
     line-height: 40px;
@@ -146,4 +145,58 @@ section{
   background: black;
   color: white;
   box-shadow: none;
+}
+
+.accitem {
+  list-style: none;
+  margin-bottom: 12px;
+  overflow: hidden;
+  background: #fff;
+  width: 100%;
+}
+
+.acchead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.accleft {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.accdetails {
+  padding: 12px 22px;
+  border-top: 1px solid #eee;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.accdetails p {
+  margin: 8px 0;
+  white-space: pre-line;
+  line-height: 1.5;
+  width: 100%;
+  font-size: medium;
+  font-weight: 400;
+}
+
+.accarrow {
+  font-size: 14px;
+} 
+
+.acctitle{
+  min-width: 375px;
+}
+.accyear{
+  padding-right: 20px;
+}
+
+.sorcon{
+  margin-bottom: 30px;
 }

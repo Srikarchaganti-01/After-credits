@@ -359,3 +359,9 @@ section{
   background: black;
   color: white;
 }
+.caunote{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+}
