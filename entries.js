@@ -1,48 +1,36 @@
 const dispname = document.getElementById("dispname");
 const supabaseUrl = "https://ppyhlmmliemzxallkivw.supabase.co";
 const supabaseKey = "sb_publishable_ku2-MLJitQBIjO3Oge6JZA_FlXTl87I";
-
 const supbase = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
 );
-// check the user is logged in or not
 async function checkSession() {
   const { data, error } = await supbase.auth.getUser();
-
   if (error) {
     console.error(error);
   }
-
   const user = data.user;
-
   if (!user) {
     window.location.href = "auth.html";
     return;
   }
-
   console.log("Logged in user:", user.id);
   return user;
 }
-
-
-// fetch entries the user name from supabase profiles
 async function fetchProfile(user) {
   const { data, error } = await supbase
     .from("profiles")
     .select("user_name")
     .eq("id", user.id)
     .single();
-
   if (error) {
     console.error("Profile error:", error);
     return;
   }
-
   dispname.textContent=data.user_name;
   console.log("Username:", dispname.textContent);
 }
-// fetching the data from supabse
 async function fetchentries(user) {
   const{data,error} = await supbase
   .from("entries")
@@ -55,54 +43,36 @@ if(error){
 }
   return data;
 }
-
-// get all the entries to one 2D array called allentries
 let allentries = [];
-// but we dont dump the shit into the main code we crate a new function to do so the fun does the magic and adds them into array removing the burden 
-
 function render(entries) {
   const ul = document.getElementById("licontan");
   ul.innerHTML = "";
-
   if (!entries.length) {
     ul.innerHTML = "<li>No Entries Yet</li>";
     return;
   }
-
   entries.forEach(entry => {
     const li = document.createElement("li");
     li.classList.add("accitem");
-
-    // HEADER
     const header = document.createElement("div");
     header.classList.add("acchead");
-
     const left = document.createElement("div");
     left.classList.add("accleft");
-
     const titlespan = document.createElement("span");
     titlespan.classList.add("acctitle");
     titlespan.textContent = entry.title ?? "Untitled";
-
     const yearspan = document.createElement("span");
     yearspan.classList.add("accyear");
     yearspan.textContent = entry.year ? ` (${entry.year})` : "";
-
     left.appendChild(titlespan);
     left.appendChild(yearspan);
-
-
     const arrow = document.createElement("i");
     arrow.classList.add("fa-solid", "fa-angle-down");
-    
     header.appendChild(left);
     header.appendChild(arrow);
-
-    // DETAILS
     const details = document.createElement("div");
     details.classList.add("accdetails");
     details.style.display = "none";
-    // also improve the font text and all this shit
     details.innerHTML = `
       <h10>Rating : ${entry.rating ?? "Not rated"}/10</h10>
       <p>Content Type : ${entry.content_type ?? "Not specified"}</p>
@@ -127,14 +97,11 @@ function render(entries) {
     ul.appendChild(li);
   });
 }
-
-//funtion for filtering and sorting the entries
 function proentries(){
   let finalentries = [...allentries];
   const filtype = getfiltyp();
   const sortype = getsortyp();
 
-  //filter
   if(filtype === "movies"){
     finalentries = finalentries.filter(entry => entry.content_type?.toLowerCase() === "movie");
   }else if (filtype === "series"){
@@ -147,7 +114,6 @@ function proentries(){
     finalentries = finalentries;
   }
 
-  // sort
   if (sortype === "rateup") {
     finalentries.sort((a, b) => (a.rating ?? 0) - (b.rating ?? 0));
 
@@ -168,8 +134,6 @@ function proentries(){
 
   render(finalentries);
 }
-
-// filter button reading
 const flbut =  document.querySelectorAll(".filbut");
 flbut.forEach(btn => {
   btn.addEventListener("click",(e) =>{
@@ -179,13 +143,10 @@ flbut.forEach(btn => {
     proentries();
   });
 });
-// getting filter button data
 function getfiltyp() {
   const activeBtn = document.querySelector(".filbut.active");
   return activeBtn ? activeBtn.id : null;
 }
-
-// sort button reading
 const srbut =  document.querySelectorAll(".sorbut");
 srbut.forEach(btn => {
   btn.addEventListener("click",(e) =>{
@@ -195,14 +156,10 @@ srbut.forEach(btn => {
     proentries();
   });
 });
-// getting sort button data
 function getsortyp() {
   const activeBtn = document.querySelector(".sorbut.active");
   return activeBtn ? activeBtn.id : null;
 }
-
-
-//initialising the total website
 async function init() {
   const user = await checkSession();
   if (!user) return;
@@ -212,4 +169,6 @@ async function init() {
   proentries();
   console.log(allentries);
 }
+
+
 init();

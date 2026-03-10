@@ -9,7 +9,6 @@ const supbase = window.supabase.createClient(
   supabaseUrl,
   supabaseKey
 );
-// check the user is logged in or not
 async function checkSession() {
   const { data, error } = await supbase.auth.getUser();
 
@@ -27,10 +26,6 @@ async function checkSession() {
   console.log("Logged in user:", user.id);
   return user;
 }
-
-
-//logout function
-
 const logoutBtn = document.getElementById("logoutbtn");
 logoutBtn.addEventListener("click", async () => {
   const {error} = await supbase.auth.signOut();
@@ -41,8 +36,6 @@ logoutBtn.addEventListener("click", async () => {
   }
   window.location.href = "index.html";
 });
-
-// fetch entries the user name from supabase profiles
 async function fetchProfile(user) {
   const { data, error } = await supbase
     .from("profiles")
@@ -57,10 +50,7 @@ async function fetchProfile(user) {
 
   dispname.textContent=data.user_name;
   console.log("Username:", dispname.textContent);
-}
-
-
-//fetch entry count 
+} 
 async function fetchcount(user) {
   const {count ,error} = await supbase
     .from("entries")
@@ -72,8 +62,6 @@ async function fetchcount(user) {
   }  
   return count ?? 0;
 }
-
-// rank logic 
 function getrank(count){
   if(count <=15) return "Rookie";
   else if(count <= 30 && count >15) return "Story Hunter";
@@ -84,14 +72,10 @@ function getrank(count){
   else if(count <= 280 && count >15) return "Cinema Maniac";
   else if(count >300) return "Grand Auteur";
 }
-//render count 
 function rendercount(count){
   const countspan = document.querySelector("#totent span");
   if(countspan) countspan.textContent = count;
 }
-
-
-// init function 
 async function init() {
   const user = await checkSession();
   if (!user) return;
@@ -105,8 +89,6 @@ async function init() {
   document.getElementById("rank").textContent = rank;
   trimList(10);
 }
-
-// content type button reading
 const tybut =  document.querySelectorAll(".typbut");
 tybut.forEach(btn => {
   btn.addEventListener("click",(e) =>{
@@ -119,16 +101,12 @@ tybut.forEach(btn => {
     console.log(seltyp);
   });
 });
-// getting content button data
 function getseltyp() {
   const activeBtn = document.querySelector(".typbut.active");
   return activeBtn
     ? activeBtn.textContent.trim().toLowerCase()
     : null;
 }
-
-
-// status type button reading
 const stbut = document.querySelectorAll(".statbut");
 stbut.forEach(btn => {
   btn.addEventListener("click",(e) => {
@@ -141,17 +119,12 @@ stbut.forEach(btn => {
     console.log(selsta);
   });
 });
-// getting status button reading
 function getselsta() {
   const activeBtn = document.querySelector(".statbut.active");
   return activeBtn
     ? activeBtn.textContent.trim().toLowerCase()
     : null;
 }
-
-
-
-// getting aLL THE REMAINING DATA FOM DOM
 
 const titelem = document.getElementById("ent_tit");
 const yearelem = document.getElementById("ent_year");
@@ -160,11 +133,8 @@ const proelem = document.getElementById("ent_pro");
 const spartelem = document.getElementById("ent_spart");
 const rateelem = document.getElementById("ent_rate");
 const noteelem = document.getElementById("ent_note");
-
 const addbtn = document.querySelector(".ent_add_btn");
 
-
-// fetching the data from supabse
 async function fetchentries(user) {
   const{data,error} = await supbase
   .from("entries")
@@ -177,8 +147,6 @@ if(error){
 }
   return data;
 }
-
-// render the fetched data
 function render(entries){
   const ul = document.getElementById("licontan");
   ul.innerHTML = "";
@@ -199,9 +167,6 @@ function render(entries){
     ul.appendChild(li);
   })
 }
-
-// read values when add bt is clicked
-
 addbtn.addEventListener("click", async (e) => {
   e.preventDefault();
   
@@ -221,7 +186,6 @@ addbtn.addEventListener("click", async (e) => {
   addbtn.disabled = true;
   addbtn.textContent = "Adding...";
   try {
-          // insering data to supabse 
         const user = await checkSession();
         if(!user) return;
         const entrydata = {
@@ -262,16 +226,11 @@ addbtn.addEventListener("click", async (e) => {
   }
 
 });
-
-
-// limit list 
-
 function trimList(limit = 10) {
   while (licontan.children.length > limit) {
     licontan.lastElementChild.remove();
   }
 }
-// clear this mess
 function clearmes() {
   titelem.value = "";
   yearelem.value = "";
@@ -285,8 +244,6 @@ function clearmes() {
   document.querySelectorAll(".statbut")
     .forEach(btn => btn.classList.remove("active"));
 }
-
-// go to next 
 titelem.addEventListener("keydown", e => {
   if (e.key === "Enter") {
     e.preventDefault();
