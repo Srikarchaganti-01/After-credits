@@ -119,3 +119,45 @@ span{
     cursor: pointer;
 }
 
+/* Media queries mobile resp */
+@media (max-width:500px){
+    .logcon{
+        flex-direction: column-reverse;
+        height: 94%;
+    }
+    .rightlog{
+        width: 95%;
+        height: 60%;
+    }
+    .leftlog{
+        padding-right: 0;
+        width: 85%;
+        padding: 20px;
+        align-items: start;
+        height: 50%;
+        margin-top: 0;
+    }
+    .tit{
+        font-size: 35px;
+    }
+    .logtit{
+        font-size: 20px;
+    }
+    .logmsg{
+        font-size: 15px;
+    }
+    .logback{
+        font-weight: 275;
+    }
+    .loghead{
+        font-size: 30px;
+    }
+    form{
+        height: 80%;
+        width: 85%;
+    }
+    input{
+        padding: 5px 15px;
+        font-size: 12px;
+    }
+}
