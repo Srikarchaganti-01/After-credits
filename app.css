@@ -161,6 +161,7 @@ section{
 .enddes{
   margin-top: 5px;
   font-style: italic;
+  font-size: smaller;
 }
 .totent,.rank{
     font-weight: 300;

@@ -210,13 +210,11 @@ addbtn.addEventListener("click", async (e) => {
           alert(error.message);
           return;
         }
-
-        console.log("The data is inserted into the data base");
-        console.log("inserted : ",data);
         const entries = await fetchentries(user);
         render(entries);
         const count = await fetchcount(user);
         rendercount(count);
+        alert("Your Entry has been Recorded");
         clearmes();
         trimList(10);
 
