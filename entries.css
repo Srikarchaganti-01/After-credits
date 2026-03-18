@@ -239,11 +239,15 @@ button{
     margin: 0;
     margin-right: 5px;
   }
+  .backto{
+    width: 100%;
+  }
   .backto button{
     padding: 3px 8px;
     font-size: 7px;
     margin: 0;
     margin-right: 5px;
+    justify-self: end;
   }
   .filcon,.sorcon span{
     margin-right: 5px;

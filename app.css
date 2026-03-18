@@ -385,15 +385,20 @@ section{
     justify-content: center;
   }
   .navbar{
-    margin: 10px 20px;
+    margin: 10px;
     justify-content: center;
   }
   .navbar li{
     padding: 5px 8px;
+    font-size: smaller;
+  }
+  .navbar ul{
+    justify-content: space-between;
+    width: 100%;
   }
   .navbar button{
     padding: 5px;
-    width: 90px;
+    width: 65px;
   }
   .greet{
     font-size: 25px;
@@ -468,6 +473,8 @@ section{
     font-size: 10px;
   }
   .dattitle{
+    margin-top: 0;
+    padding-top: 0;
     font-size: 35px;
   }
   .datcon{
