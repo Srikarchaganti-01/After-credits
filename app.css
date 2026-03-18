@@ -371,6 +371,9 @@ section{
   min-width: 375px;
 }
 @media (max-width:500px){
+  .addform input,button{
+    font-size: 10px;
+  }
   .left{
     display: none;
   }
@@ -421,7 +424,7 @@ section{
     border-radius: 15px;
   }
   #add{
-    height: 100vh;
+    height: 75vh;
   }
   .mainent{
     flex-direction: column;
