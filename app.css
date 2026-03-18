@@ -23,7 +23,9 @@ select:-webkit-autofill {
 body{
     font-family: "Montserrat",'Courier New',"Playfair Display", sans-serif;
 }
-
+input{
+  font-family: "Montserrat",sans-serif;
+}
 section{
     display: flex;
     justify-content: center;
