@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 * {
   margin: 0;
   padding: 0;
   outline: none;
 }
-*:active{
-  outline: none;
-}
-html{
+
+html {
   scroll-behavior: smooth;
   height: max-content;
 }
@@ -20,52 +18,51 @@ select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0px 1000px white inset;
   -webkit-text-fill-color: black;
 }
-body{
-    font-family: "Montserrat",'Courier New',"Playfair Display", sans-serif;
+body {
+  font-family: "Montserrat", "Courier New", "Playfair Display", sans-serif;
 }
-input{
-  font-family: "Montserrat",sans-serif;
+input {
+  font-family: "Montserrat", sans-serif;
 }
-section{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.navbar{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    margin: 20px;
-    border-radius: 10px;
-
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 10px;
 }
-.right ul{
+.right ul {
   width: max-content;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .right ul li {
-    list-style: none;
+  list-style: none;
 }
-.right a{
+.right a {
   text-decoration: none;
   color: black;
 }
-.left{
-    font-family: "Playfair Display", sans-serif;
-    cursor: default;
-    font-weight: 400;
-    font-size: large;
+.left {
+  font-family: "Playfair Display", sans-serif;
+  cursor: default;
+  font-weight: 400;
+  font-size: large;
 }
-.left2{
-    font-family: "Playfair Display", sans-serif;
-    cursor: default;
-    font-weight: 400;
-    font-size: large;
-    text-align: center;
-    display: none;
+.left2 {
+  font-family: "Playfair Display", sans-serif;
+  cursor: default;
+  font-weight: 400;
+  font-size: large;
+  text-align: center;
+  display: none;
 }
 .navbar ul {
   display: flex;
@@ -111,7 +108,12 @@ section{
   position: absolute;
   inset: -1px;
   border-radius: 6px;
-  background: conic-gradient(from 0deg, rgb(255, 255, 255), rgb(0, 0, 0), rgb(133, 133, 133));
+  background: conic-gradient(
+    from 0deg,
+    rgb(255, 255, 255),
+    rgb(0, 0, 0),
+    rgb(133, 133, 133)
+  );
   animation: rorbor 4s linear infinite;
   z-index: -1;
 }
@@ -134,58 +136,56 @@ section{
   transition: transform 0.5s ease-in-out;
 }
 
-
-.homecon{
-    display: flex;
-    flex-direction:column ;
-    justify-content: space-evenly;
-    width: 75%;
-    height: 50vh;
-    border-radius: 50px;
+.homecon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 75%;
+  height: 50vh;
+  border-radius: 50px;
 }
-.greet{
-    font-size: 50px;
-    font-weight: 350;
+.greet {
+  font-size: 50px;
+  font-weight: 350;
 }
-.homedes{
-    font-size: 20px;
-    font-weight: 200;
+.homedes {
+  font-size: 20px;
+  font-weight: 200;
 }
-.maindes{
+.maindes {
   margin-bottom: 10px;
   font-weight: 300;
 }
-.maindes sub{
+.maindes sub {
   font-size: small;
   font-style: italic;
   font-weight: 250;
 }
-.enddes{
+.enddes {
   margin-top: 5px;
   font-style: italic;
   font-size: smaller;
 }
-.totent,.rank{
-    font-weight: 300;
+.totent,
+.rank {
+  font-weight: 300;
 }
 
-
-
-#data{
-    width: 98vw;
+#data {
+  width: 98vw;
 }
-.datacon{
+.datacon {
   /* min-height: 90vh; */
   height: max-content;
   width: 95%;
   margin: 30px;
-  border-radius: 25px; 
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.dattitle{
+.dattitle {
   font-size: 50px;
   text-align: start;
   font-weight: 300;
@@ -193,7 +193,7 @@ section{
   padding: 20px;
   margin: 20px;
 }
-.datcon{
+.datcon {
   min-height: 300px;
   width: 80%;
   display: flex;
@@ -201,128 +201,130 @@ section{
   align-items: start;
   padding-bottom: 20px;
 }
-#licontan{
+#licontan {
   width: 100%;
 }
-#licontan li{
-    min-width: 50%;
-    width: max-content;
-    list-style: none;
-    font-size: 30px;
-    padding: 12px 30px ;
-    user-select: none;
-    cursor: pointer;
-    color: #707070;
-    display: flex;
-    align-items: center;
-    justify-content: start;
+#licontan li {
+  min-width: 50%;
+  width: max-content;
+  list-style: none;
+  font-size: 30px;
+  padding: 12px 30px;
+  user-select: none;
+  cursor: pointer;
+  color: #707070;
+  display: flex;
+  align-items: center;
+  justify-content: start;
 }
-#licontan li span{
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    /* min-width: 375px; */
-    font-size: 22px;
-    color: #555;
-    line-height: 40px;
-    text-align: center;
-    border-radius: 20px;
-    margin: 0px 10px;
+#licontan li span {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  /* min-width: 375px; */
+  font-size: 22px;
+  color: #555;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 20px;
+  margin: 0px 10px;
 }
-.datsum{
+.datsum {
   width: 80%;
   display: flex;
   justify-content: space-centre;
   align-items: start;
   padding: 30px 0px;
 }
-.dcon{
+.dcon {
   width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.tottit{
+.tottit {
   font-size: xx-large;
 }
-#totdat{
+#totdat {
   font-size: xx-large;
   font-weight: 500;
 }
-.copy{
+.copy {
   margin: 20px;
   text-align: center;
   font-size: small;
   font-weight: 300;
 }
-#add{
+#add {
   height: 80vh;
   /* margin: 30px;
   padding: 30px; */
   border-radius: 40px;
 }
-.addform{
+.addform {
   width: 75%;
   height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
-.ent_head{
+.ent_head {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.head{
+.head {
   font-size: 40px;
   font-weight: 250;
 }
-.ent_head button{
+.ent_head button {
   background: transparent;
   padding: 15px 35px;
   border: 0.5px solid rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   border-radius: 25px;
-  font-size: 20px; 
+  font-size: 20px;
 }
-.mainent{
+.mainent {
   display: flex;
   justify-content: start;
   align-items: center;
 }
-.mainent input{
+.mainent input {
   padding: 10px 20px;
   margin-right: 20px;
   border: 0.01px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
 }
-#ent_year{
+#ent_year {
   text-align: center;
   width: 120px;
 }
-.contypr{
+.contypr {
   display: flex;
   align-items: center;
   margin-right: 10px;
   font-size: 20px;
   font-weight: 200;
 }
-.entloc input{
+.entloc input {
   padding: 10px 20px;
   margin-right: 20px;
   border: 0.01px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
 }
-.entsta{
+.entsta {
   display: flex;
   align-items: center;
   margin-right: 10px;
   font-size: 20px;
   font-weight: 200;
 }
-.watched,.yet_to,.typbut{
+.watched,
+.yet_to,
+.typbut {
   color: #555;
   border: 0.001px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
@@ -331,7 +333,7 @@ section{
   background: transparent;
   margin: 0 5px;
 }
-.rate input{
+.rate input {
   width: 90px;
   text-align: center;
   padding: 10px 10px;
@@ -340,14 +342,14 @@ section{
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   border-radius: 25px;
 }
-.rate input ::placeholder{
+.rate input ::placeholder {
   display: flex;
   justify-content: center;
 }
-.entnote{
+.entnote {
   min-height: 100px;
 }
-#ent_note{
+#ent_note {
   height: 90px;
   width: 100%;
   max-width: stretch;
@@ -359,134 +361,137 @@ section{
   border-radius: 25px;
   resize: none;
 }
-.active{
+.active {
   background: black;
   color: white;
 }
-.caunote{
+.caunote {
   text-align: center;
   font-size: 13px;
   font-weight: 250;
   font-style: italic;
 }
-.minwid{
+.minwid {
   min-width: 375px;
 }
-@media (max-width:500px){
-  .addform input,button{
+@media (max-width: 500px) {
+  .addform input,
+  button {
     font-size: 10px;
   }
-  .left{
+  .left {
     display: none;
   }
-  .right{
+  .right {
     width: 100%;
     display: flex;
     justify-content: center;
   }
-  .navbar{
+  .navbar {
     margin: 10px;
     justify-content: center;
   }
-  .navbar li{
+  .navbar li {
     padding: 5px 8px;
     font-size: smaller;
   }
-  .navbar ul{
+  .navbar ul {
     justify-content: space-between;
     width: 100%;
   }
-  .navbar button{
+  .navbar button {
     padding: 5px;
     width: 65px;
   }
-  .greet{
+  .greet {
     font-size: 25px;
   }
-  .maindes{
+  .maindes {
     font-size: 10px;
   }
-  .middes{
+  .middes {
     font-size: 12px;
   }
-  .enddes{
+  .enddes {
     font-size: 10px;
   }
-  .homecon{
+  .homecon {
     height: 35vh;
     width: 85%;
   }
-  .maindes sub{
+  .maindes sub {
     font-size: 10px;
   }
-  .head{
+  .head {
     font-size: 30px;
   }
-  .addform{
+  .addform {
     width: 90%;
   }
-  .ent_head button{
+  .ent_head button {
     font-size: 15px;
     padding: 8px 16px;
     border-radius: 15px;
   }
-  #add{
+  #add {
     height: 75vh;
   }
-  .mainent{
+  .mainent {
     flex-direction: column;
     align-items: start;
   }
-  #ent_tit{
+  #ent_tit {
     width: 120px;
     margin-right: 0;
     margin-bottom: 10px;
   }
-  #ent_year{
+  #ent_year {
     width: 90px;
     margin-right: 0;
     margin-bottom: 10px;
   }
-  .contypr{
+  .contypr {
     font-size: 15px;
     margin-right: 0;
     margin-bottom: 5px;
   }
-  .contypr button{
+  .contypr button {
     padding: 8px;
     border-radius: 12px;
   }
-  #ent_dir,#ent_pro,#ent_spart{
+  #ent_dir,
+  #ent_pro,
+  #ent_spart {
     margin-bottom: 10px;
     margin-right: 0;
   }
-  .entloc input{
+  .entloc input {
     width: 110px;
   }
-  #ent_note{
+  #ent_note {
     height: 45px;
   }
-  .rate input{
+  .rate input {
     width: 70px;
   }
-  .copy{
+  .copy {
     font-size: 10px;
   }
-  .dattitle{
+  .dattitle {
     margin-top: 0;
     padding-top: 0;
     font-size: 35px;
   }
-  .datcon{
+  .datcon {
     width: 100%;
   }
-  #licontan li span{
+  #licontan li span {
     font-size: 15px;
   }
-  .minwid{
+  .minwid {
     min-width: 200px;
   }
-  .totent{
+  .totent {
     font-weight: 250;
   }
 }
