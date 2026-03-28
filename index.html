@@ -1,40 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>After Credits</title>
-    <link rel="stylesheet" href="landing.css">
-    <link rel="icon" type="image/png" href="Lassets/favicon.png">
-</head>
-<body>
-    <div class="navbar glass">
-        <div class="left">After Credits</div>
-        <div class="right"><button id="logbut" onclick="window.location.href='auth.html'">login</button></div>
-    </div>
-    <main>
-        <div class="maincon glass">
-            <div class="leftcon glassb spawn1" id="leftcon">
-                <div class="bg-blur"></div>
-                <div class="title spawn">After Credits</div>
-                <div class="titdes spawn">For the memories that stayed with you after the credits.</div>
-                <div class="titdes1 spawn">After Credits is a personal cinema journal to track what you watch and what you think about it — privately, simply, and honestly.</div>
-                <div class="titmsg spawn">
-                    Dont have an account <span onclick="window.location.href='signup.html'">Sign up</span>
-                </div>
-            </div>
-            <div class="rightcon glassb spawn1" >
-                <div class="imgcon spawn" id="imgcon"></div>
-                <div class="mtit dat" id="mtit">2</div>
-                <div class="mdirec dat" id="mdirec">3</div>
-                <div class="year dat" id="year">5</div>
-                <div class="imdb dat" id="imdb">4</div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>After Credits — For the memories that stayed with you.</title>
+    <link rel="stylesheet" href="landing.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav id="navbar">
+      <a href="#" class="left">After Credits</a>
+      <div class="right">
+        <a href="auth.html" class="btn witbtn">Log In</a>
+        <a href="signup.html" class="btn blcbtn">Sign Up</a>
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="herobox">
+        <p class="titup">Your personal cinema journal</p>
+        <h1 class="tit">After<br /><em>Credits</em></h1>
+        <p class="tag">
+          "For the memories that stayed with you after the credits."
+        </p>
+        <p class="desc">
+          A digital space to track every film and series that moved you - what
+          you've seen, what you're saving, and everything in between.
+        </p>
+        <div class="herobtns">
+          <a href="signup.html" class="btn blcbtn bigbut">Get Started</a>
+          <a href="auth.html" class="btn witbtn bigbut">Sign In</a>
         </div>
-    </main>
+      </div>
+    </section>
+    <div class="split"></div>
+    <section class="call">
+      <div class="callbox">
+        <p class="callquo">
+          "Some films live in you long after the screen goes dark."
+        </p>
+        <p class="callsub">
+          Start listing the ones that mattered. It takes less than a minute.
+        </p>
+        <div class="callbtns">
+          <a href="signup.html" class="btn blcbtn bigbut">Create Your List</a>
+          <a href="auth.html" class="btn witbtn bigbut">Welcome Back</a>
+        </div>
+      </div>
+    </section>
+
     <footer>
-      <div class="copy">Copyright © 2026 Srikar Chaganti - All Rights Reserved.</div>
+      <div class="copy">
+        Copyright © 2026 Srikar Chaganti - All Rights Reserved.
+      </div>
     </footer>
-    <script src="landing.js"></script>
-</body>
+  </body>
 </html>
